@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 #define serialize_u32(data)           + sizeof(uint32_t)
 #define serialize_u64(data)           + sizeof(uint64_t)
 #define serialize_write(data, length) + (length)

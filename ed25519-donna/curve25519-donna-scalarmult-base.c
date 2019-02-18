@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 #include "ed25519-donna.h"
 #include "ed25519.h"
 

@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 // Implementations of the XChaCha20 + Poly1305 and ChaCha20 + Poly1305
 // AEAD constructions with a goal of simplicity and correctness rather
 // than performance.

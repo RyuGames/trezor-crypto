@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 /**
  * Copyright (c) 2012-2014 Luke Dashjr
  * Copyright (c) 2013-2014 Pavol Rusnak

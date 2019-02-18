@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 /**
  * Copyright (c) 2013-2016 Tomas Dzetkulic
  * Copyright (c) 2013-2016 Pavol Rusnak
@@ -357,7 +359,7 @@ int hdnode_private_ckd_cardano(HDNode *inout, uint32_t index)
 int hdnode_from_seed_cardano(const uint8_t *pass, int pass_len, const uint8_t *seed, int seed_len, HDNode *out) {
 	static CONFIDENTIAL uint8_t secret[96];
 	pbkdf2_hmac_sha512(pass, pass_len, seed, seed_len, 4096, secret, 96);
-	
+
 	secret[0] &= 248;
 	secret[31] &= 31;
 	secret[31] |= 64;

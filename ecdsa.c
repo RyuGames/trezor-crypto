@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 /**
  * Copyright (c) 2013-2014 Tomas Dzetkulic
  * Copyright (c) 2013-2014 Pavol Rusnak
@@ -281,13 +283,13 @@ void point_jacobian_add(const curve_point *p1, jacobian_curve_point *p2, const e
 	bn_multiply(&xz, &xz, prime); // xz = z2^2
 	yz = p2->z;
 	bn_multiply(&xz, &yz, prime); // yz = z2^3
-	
+
 	if (a != 0) {
 		az  = xz;
 		bn_multiply(&az, &az, prime);   // az = z2^4
 		bn_mult_k(&az, -a, prime);      // az = -az2^4
 	}
-	
+
 	bn_multiply(&p1->x, &xz, prime);        // xz = x1' = x1*z2^2;
 	h = xz;
 	bn_subtractmod(&h, &p2->x, &h, prime);
@@ -313,14 +315,14 @@ void point_jacobian_add(const curve_point *p1, jacobian_curve_point *p2, const e
 	r2 = p2->x;
 	bn_multiply(&r2, &r2, prime);
 	bn_mult_k(&r2, 3, prime);
-	
+
 	if (a != 0) {
 		// subtract -a z2^4, i.e, add a z2^4
 		bn_subtractmod(&r2, &az, &r2, prime);
 	}
 	bn_cmov(&r, is_doubling, &r2, &r);
 	bn_cmov(&h, is_doubling, &yz, &h);
-	
+
 
 	// hsqx = h^2
 	hsqx = h;

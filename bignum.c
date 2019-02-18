@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wshorten-64-to-32"
+
 /**
  * Copyright (c) 2013-2014 Tomas Dzetkulic
  * Copyright (c) 2013-2014 Pavol Rusnak
@@ -491,7 +493,7 @@ void bn_multiply(const bignum256 *k, bignum256 *x, const bignum256 *prime)
 {
 	uint32_t res[18] = {0};
 	bn_multiply_long(k, x, res);
-	bn_multiply_reduce(x, res, prime); 
+	bn_multiply_reduce(x, res, prime);
 	memzero(res, sizeof(res));
 }
 
